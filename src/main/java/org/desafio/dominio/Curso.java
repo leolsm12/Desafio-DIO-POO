@@ -5,7 +5,12 @@ import lombok.Data;
 @Data
 public class Curso extends Conteudo{
 
-    int cargoraria;
+    private int cargaHoraria;
+
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO * cargaHoraria;
+    }
 
 
     @Override
@@ -13,12 +18,8 @@ public class Curso extends Conteudo{
         return "Curso{" +
                 "titulo='" + getTitulo() + '\'' +
                 ", descricao='" + getDescricao() + '\'' +
-                ", cargoraria=" + cargoraria + "hrs" +
+                ", cargoraria=" + cargaHoraria + "hrs" +
                 '}';
     }
 
-    @Override
-    public double calcularXp() {
-        return 0;
-    }
 }
